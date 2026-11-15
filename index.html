@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fola Oluwatosin, Speaker</title>
+<meta name="description" content="Fola Oluwatosin is a UK-based data scientist, speaker and mentor working on fraud detection and predictive analytics in finance and insurance.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Layout: single column, max 1080px, top anchor nav, editorial sections with eyebrow + heading + grid of cards. */
+  --bg:#EEF1F4;
+  --surface:#FFFFFF;
+  --surface-2:#E3E8EE;
+  --ink:#121A26;
+  --ink-2:#4A5666;
+  --line:#D3DAE2;
+  --accent:#0F6E63;
+  --accent-ink:#FFFFFF;
+  --accent-soft:#D7ECE8;
+  --amber:#C9801A;
+  --amber-soft:#F7E8CF;
+  --display:"Fraunces", Georgia, "Times New Roman", serif;
+  --body:"Manrope", "Segoe UI", system-ui, -apple-system, sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0F141B; --surface:#171E27; --surface-2:#1F2833; --ink:#E8ECF1; --ink-2:#A3AEBC; --line:#2B3541;
+    --accent:#3BB8A6; --accent-ink:#0B1A17; --accent-soft:#163631; --amber:#E2A040; --amber-soft:#3A2B12;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0F141B; --surface:#171E27; --surface-2:#1F2833; --ink:#E8ECF1; --ink-2:#A3AEBC; --line:#2B3541;
+  --accent:#3BB8A6; --accent-ink:#0B1A17; --accent-soft:#163631; --amber:#E2A040; --amber-soft:#3A2B12;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:3px solid var(--amber);outline-offset:3px;border-radius:4px}
+img{max-width:100%}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.12;margin:0;text-wrap:balance;letter-spacing:-0.01em}
+h1{font-size:clamp(2.1rem,4.6vw,3.6rem)}
+h2{font-size:clamp(1.6rem,3vw,2.3rem)}
+h3{font-size:1.2rem;font-family:var(--body);font-weight:700;line-height:1.3}
+p{margin:0}
+.wrap{max-width:1080px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+.eyebrow{font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.muted{color:var(--ink-2)}
+
+/* Nav */
+.nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:64px}
+.brand{font-family:var(--display);font-weight:600;font-size:1.15rem;color:var(--ink);text-decoration:none}
+.nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+.nav li a{color:var(--ink-2);text-decoration:none;font-size:.92rem;font-weight:600}
+.nav li a:hover{color:var(--ink)}
+@media (max-width:760px){.nav ul{display:none}}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font-weight:700;font-size:.95rem;text-decoration:none;border:1.5px solid transparent;cursor:pointer;font-family:var(--body)}
+.btn-primary{background:var(--accent);color:var(--accent-ink)}
+.btn-primary:hover{filter:brightness(1.07)}
+.btn-ghost{border-color:var(--line);color:var(--ink);background:var(--surface)}
+.btn-ghost:hover{border-color:var(--ink-2)}
+
+/* Hero */
+.hero{padding:clamp(48px,8vw,96px) 0 40px}
+.hero .grid{display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(24px,5vw,64px);align-items:center}
+@media (max-width:820px){.hero .grid{grid-template-columns:1fr}}
+.hero .lede{font-size:1.12rem;color:var(--ink-2);max-width:60ch;margin-top:22px}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.portrait{aspect-ratio:4/5;border-radius:24px;background:linear-gradient(160deg,var(--accent) 0%,#0B3F39 100%);position:relative;overflow:hidden;box-shadow:0 30px 60px -30px rgba(0,0,0,.45)}
+.portrait img{width:100%;height:100%;object-fit:cover;display:block}
+.portrait .mono{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:clamp(4rem,10vw,7rem);color:#fff;opacity:.9}
+.portrait .ring{position:absolute;width:140%;height:140%;border:1px solid rgba(255,255,255,.18);border-radius:50%;left:-20%;top:30%}
+.portrait .tag{position:absolute;left:16px;bottom:16px;background:rgba(255,255,255,.92);color:#0B1A17;font-size:.8rem;font-weight:700;padding:8px 12px;border-radius:10px}
+
+/* Proof strip */
+.proof{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden;margin:40px 0 0}
+.proof div{background:var(--surface);padding:18px 16px}
+.proof b{display:block;font-family:var(--display);font-size:1.7rem;font-weight:600;font-variant-numeric:tabular-nums;color:var(--ink)}
+.proof span{font-size:.82rem;color:var(--ink-2);line-height:1.35;display:block;margin-top:4px}
+@media (max-width:900px){.proof{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:480px){.proof{grid-template-columns:repeat(2,1fr)}}
+
+/* Sections */
+section{padding:clamp(48px,7vw,88px) 0;border-top:1px solid var(--line)}
+section:first-of-type{border-top:0}
+.head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:24px 48px;align-items:start;margin-bottom:36px}
+.head p{color:var(--ink-2);max-width:62ch}
+@media (max-width:820px){.head{grid-template-columns:1fr}}
+
+/* Story */
+.story{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px)}
+@media (max-width:820px){.story{grid-template-columns:1fr}}
+.story .text p+p{margin-top:16px}
+.story .text{max-width:62ch}
+.bio-card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px}
+.bio-card h3{margin-bottom:6px}
+.bio-card .len{font-size:.78rem;color:var(--ink-2);font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.bio-card p{margin-top:10px;font-size:.97rem}
+.bio-card+.bio-card{margin-top:16px}
+.copy{margin-top:12px;background:var(--surface-2);border:0;color:var(--ink);padding:8px 14px;border-radius:999px;font-size:.82rem;font-weight:700;cursor:pointer;font-family:var(--body)}
+.copy:hover{background:var(--line)}
+
+/* Cards */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:900px){.cards{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.cards{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:10px}
+.card .num{font-family:var(--display);color:var(--amber);font-size:1.4rem;font-weight:600}
+.card p{color:var(--ink-2);font-size:.96rem}
+.card .meta{font-size:.8rem;font-weight:700;color:var(--ink-2);letter-spacing:.04em;text-transform:uppercase}
+.card a.more{margin-top:auto;font-weight:700;font-size:.92rem}
+
+/* Featured talk */
+.talks{display:grid;gap:16px;margin-bottom:28px}
+.feature{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;background:var(--surface);border:1px solid var(--line);border-radius:22px;overflow:hidden}
+@media (max-width:820px){.feature{grid-template-columns:1fr}}
+.cards.four{grid-template-columns:repeat(4,1fr)}
+@media (max-width:900px){.cards.four{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.cards.four{grid-template-columns:1fr}}
+.feature .body{padding:28px}
+.feature .body p{color:var(--ink-2);margin-top:10px}
+.feature .watch{font-weight:700;font-size:.92rem}
+.feature .pill{display:inline-block;background:var(--amber-soft);color:var(--amber);font-weight:700;font-size:.78rem;padding:6px 10px;border-radius:999px;letter-spacing:.06em;text-transform:uppercase}
+.feature ul{margin:14px 0 0;padding-left:18px;color:var(--ink-2)}
+.feature .visual{background:var(--accent-soft);display:flex;align-items:center;justify-content:center;padding:28px;min-height:220px}
+.feature .visual .slide{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;width:100%;max-width:360px;box-shadow:0 20px 40px -24px rgba(0,0,0,.4)}
+.feature .visual .slide small{color:var(--ink-2);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.72rem}
+.feature .visual .slide strong{display:block;font-family:var(--display);font-size:1.35rem;font-weight:600;margin-top:8px;line-height:1.2}
+.feature .visual .slide em{display:block;font-style:normal;color:var(--ink-2);font-size:.9rem;margin-top:10px}
+.formats{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.formats span{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:.88rem;font-weight:600}
+
+/* Testimonials */
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}
+@media (max-width:820px){.quotes{grid-template-columns:1fr}}
+.quote{background:var(--surface-2);border-radius:18px;padding:22px;font-size:.98rem}
+.quote p{font-family:var(--display);font-size:1.12rem;line-height:1.4}
+.quote footer{margin-top:12px;font-size:.84rem;color:var(--ink-2);font-weight:600}
+.badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.badges span{display:inline-flex;align-items:center;gap:8px;background:var(--accent-soft);color:var(--accent);font-weight:700;font-size:.85rem;padding:8px 14px;border-radius:999px}
+.badges span::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent)}
+
+/* Lists */
+.list{display:grid;gap:12px}
+.row{display:grid;grid-template-columns:110px 1fr auto;gap:16px;align-items:baseline;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+@media (max-width:640px){.row{grid-template-columns:1fr}}
+.row .when{font-size:.85rem;color:var(--ink-2);font-weight:700;font-variant-numeric:tabular-nums}
+.row .what strong{display:block;font-weight:700}
+.row .what span{color:var(--ink-2);font-size:.93rem}
+.row a{font-weight:700;font-size:.9rem;white-space:nowrap}
+
+/* Footer / contact */
+.contact{background:var(--ink);color:var(--bg);border-radius:26px;padding:clamp(28px,5vw,56px);display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center}
+@media (max-width:820px){.contact{grid-template-columns:1fr}}
+.contact h2{color:var(--bg)}
+.contact p{color:color-mix(in srgb,var(--bg) 75%,transparent);margin-top:12px;max-width:52ch}
+.contact .links{display:grid;gap:10px;grid-template-columns:1fr 1fr}
+@media (max-width:560px){.contact .links{grid-template-columns:1fr}}
+.contact .links a{display:flex;justify-content:space-between;align-items:center;background:color-mix(in srgb,var(--bg) 10%,transparent);border:1px solid color-mix(in srgb,var(--bg) 25%,transparent);color:var(--bg);text-decoration:none;padding:14px 18px;border-radius:14px;font-weight:600}
+.contact .links a:hover{background:color-mix(in srgb,var(--bg) 18%,transparent)}
+.contact .links small{opacity:.7;font-weight:500}
+.foot{padding:32px 0 48px;color:var(--ink-2);font-size:.86rem;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
+.fine{font-size:.9rem;color:var(--ink-2);margin-top:28px;max-width:70ch}
+
+@media print{
+  .nav,.cta,.copy,.contact .links{display:none}
+  body{font-size:12pt;background:#fff;color:#000}
+  section{padding:18pt 0;break-inside:avoid}
+  .portrait{display:none}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">Fola Oluwatosin</a>
+    <ul>
+      <li><a href="#story">Story</a></li>
+      <li><a href="#speaking">Speaking</a></li>
+      <li><a href="#writing">Writing</a></li>
+      <li><a href="#mentoring">Mentoring</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Book Fola</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <div class="grid">
+      <div>
+        <div class="eyebrow">Data Scientist · AI for Risk in Finance and Insurance · Speaker · Mentor</div>
+        <h1>I build the risk and fraud models that banks and insurers rely on, and I teach people how to build careers in data.</h1>
+        <p class="lede">Data Scientist at a UK fintech, building machine-learning models that banks and insurers use for fraud detection, risk and predictive analytics, with over £5 million in losses prevented by models I have built. Published writer on AI fairness, graph neural networks and generative AI. Mentor to more than 38 people building careers in data.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="#contact">Invite me to speak</a>
+          <a class="btn btn-ghost" href="#speaking">See talk topics</a>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/fola-o-05b73023a/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+      <div class="portrait" aria-label="Portrait of Fola Oluwatosin">
+        <img src="fola.jpg" alt="Fola Oluwatosin" width="960" height="1200">
+        <div class="tag">Speaker · Coding Black Females (UK) · The UK Tech Table</div>
+      </div>
+    </div>
+
+    <div class="proof" aria-label="At a glance">
+      <div><b>5+</b><span>years in data analytics and data science</span></div>
+      <div><b>£5m+</b><span>in losses prevented by models I have built</span></div>
+      <div><b>38+</b><span>people mentored one-to-one into data careers in 2025</span></div>
+      <div><b>5</b><span>published articles on AI and data science</span></div>
+      <div><b>1,000+</b><span>minutes of mentoring on ADPList</span></div>
+      <div><b>Top 10</b><span>ADPList mentor, March and June 2026</span></div>
+    </div>
+  </div>
+
+  <section id="story">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <div class="eyebrow">My story</div>
+          <h2>From asking better questions to building the models that answer them</h2>
+        </div>
+        <p>I did not arrive in data through a straight line. I arrived through curiosity, a computer science classroom, and a stubborn belief that a model is only as good as the question behind it and the person it affects.</p>
+      </div>
+      <div class="story">
+        <div class="text">
+          <p>I studied computer science and found my way into analytics by asking questions nobody around me was asking of the data we already had. That habit became a career. Over the past five years I have moved from analysis to machine learning, from reporting to production, and from working alone to building things that other people depend on.</p>
+          <p>Today I am a Data Scientist at a UK fintech, where I build machine-learning models that help banks and insurers detect fraud and manage risk across hundreds of millions of records. Models I have built have prevented more than £5 million in losses. I present model results to clients, and I mentor less experienced data scientists and review their work. The job sits where accuracy meets consequence: a false positive is a real customer blocked; a false negative is a real loss. That tension is why I write about fairness, explainability and the limits of accuracy as a metric.</p>
+          <p>Outside work I mentor people breaking into data from healthcare, care work and other sectors, through ADPList, the Black Data Professional Network and Utiva. I know what it is like to build a career without a map, so I spend a lot of my time drawing one for other people.</p>
+        </div>
+        <div>
+          <div class="bio-card">
+            <h3>Speaker bio</h3>
+            <span class="len">Ready to copy for programmes and listings</span>
+            <p id="bio-long">Fola Oluwatosin is a Data Scientist at a UK fintech, where she builds machine-learning models that detect fraud and manage risk for banks and insurers across hundreds of millions of records. Models she has built have prevented more than £5 million in losses. Her work focuses on where accuracy meets consequence: stopping fraud without blocking honest customers. She presents model results to clients and mentors and reviews the work of less experienced data scientists. Fola writes on AI fairness, graph neural networks, quantum machine learning and generative AI for Techeconomy, Technext and RaveNews, and was profiled by Zikoko for her work helping aspiring professionals break into tech. She is a Top 10 mentor on ADPList, a Data Science Coach at Utiva and a mentor with the Black Data Professional Network, and she has spoken at Coding Black Females (UK) Lightning Talks and on The UK Tech Table panel by TechBridge.</p>
+            <button class="copy" type="button" data-copy="bio-long">Copy bio</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="speaking">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <div class="eyebrow">Speaking</div>
+          <h2>Talks that make risk, fairness and data careers make sense</h2>
+        </div>
+        <p>I speak to tech communities, university and bootcamp cohorts, fintech and insurance teams, and women-in-tech and diaspora networks. Every talk is built from work I have actually shipped or people I have actually mentored, so the examples are real.</p>
+      </div>
+
+      <div class="talks">
+        <div class="feature">
+          <div class="body">
+            <span class="pill">Panel</span>
+            <h3 style="margin-top:14px">Breaking Into UK Tech: The Honest Conversation</h3>
+            <p>The UK Tech Table by TechBridge · 5 December 2026 · Online webinar, recorded</p>
+            <ul>
+              <li>The realities of breaking into tech in the UK, from someone who has mentored 38+ people through it</li>
+              <li>Finding your path when your background does not look like the job description</li>
+              <li>Navigating career opportunities once you are in</li>
+            </ul>
+            <!-- TODO: replace href="#" with the TechBridge recording link -->
+            <p style="margin-top:14px"><a href="#" class="watch">Watch the recording</a></p>
+          </div>
+          <div class="visual" aria-hidden="true">
+            <div class="slide">
+              <small>The UK Tech Table · TechBridge</small>
+              <strong>Breaking Into UK Tech</strong>
+              <em>Panellist · Fola Oluwatosin</em>
+            </div>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="body">
+            <span class="pill">Lightning talk</span>
+            <h3 style="margin-top:14px">Behavioural Biometrics: Fighting Fraud Without Friction</h3>
+            <p>Coding Black Females (UK) Lightning Talks · 21 May 2025 · Online</p>
+            <ul>
+              <li>The fraud problem today and why extra verification steps are costing honest customers</li>
+              <li>How behavioural biometrics work: typing rhythm, swipe patterns, device handling</li>
+              <li>Benefits, challenges and where the technology goes next</li>
+            </ul>
+            <!-- TODO: replace href="#" with the CBF recording link -->
+            <p style="margin-top:14px"><a href="#" class="watch">Watch the recording</a></p>
+          </div>
+          <div class="visual" aria-hidden="true">
+            <div class="slide">
+              <small>Lightning Talks · #CBFLightningTalks</small>
+              <strong>Fighting Fraud Without Friction</strong>
+              <em>Speaker · Fola Oluwatosin</em>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <span class="num">01</span>
+          <h3>Risk Models at the Scale of Hundreds of Millions of Records</h3>
+          <p>What it really takes to build, score and monitor risk and fraud models for banks and insurers: link features, drift, explainability, and the true cost of a wrong decision in either direction.</p>
+          <span class="meta">Fintech · Insurance · Risk and data teams</span>
+        </article>
+        <article class="card">
+          <span class="num">02</span>
+          <h3>Beyond Accuracy: Building AI That Is Fair in the Real World</h3>
+          <p>Why a model with 99% accuracy can still fail the people it is meant to serve, with examples from fraud, credit and claims decisions, and how to evaluate and reduce bias across the full lifecycle, from data collection to live monitoring.</p>
+          <span class="meta">AI ethics · Product · Leadership</span>
+        </article>
+        <article class="card">
+          <span class="num">03</span>
+          <h3>Behavioural Biometrics: Fighting Fraud Without Friction</h3>
+          <p>How the way a person types, swipes and holds a phone can stop fraud without adding a single step for honest customers. The talk I gave at Coding Black Females (UK), updated.</p>
+          <span class="meta">Fintech · Security · General tech</span>
+        </article>
+        <article class="card">
+          <span class="num">04</span>
+          <h3>Fraud Is a Network Problem</h3>
+          <p>Fraud rings share phones, addresses and devices. This talk shows why row-by-row models miss them and how graph methods and link features find the shape of organised fraud.</p>
+          <span class="meta">Data science · Graph ML</span>
+        </article>
+        <article class="card">
+          <span class="num">05</span>
+          <h3>Breaking Into Data Without the Perfect Background</h3>
+          <p>A practical talk for career changers, built on mentoring 38+ people from healthcare, care work and other sectors: portfolios that get interviews, positioning, and what hiring managers actually look for.</p>
+          <span class="meta">Career · Bootcamps · Community</span>
+        </article>
+        <article class="card">
+          <span class="num">06</span>
+          <h3>Generative AI Beyond Text</h3>
+          <p>How image, video and audio generation actually work, what they are already changing in business, and the risks (deepfakes, bias, energy) that teams need to plan for now.</p>
+          <span class="meta">General audience · Business</span>
+        </article>
+      </div>
+
+      <div class="formats">
+        <span>Keynote</span>
+        <span>Lightning talk</span>
+        <span>Panel</span>
+        <span>Workshop</span>
+        <span>Podcast guest</span>
+        <span>In person or online</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="writing">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <div class="eyebrow">Writing and press</div>
+          <h2>Published thinking on where AI is going</h2>
+        </div>
+        <p>I write to make hard ideas usable for people who have to make decisions with them. These pieces have appeared in African technology press.</p>
+      </div>
+      <div class="list">
+        <div class="row">
+          <span class="when">Apr 2025</span>
+          <div class="what"><strong>Generative AI Beyond Text: Innovations in Image, Video and Audio Synthesis</strong><span>Technext · Opinion</span></div>
+          <a href="https://technext24.com/opinion/generative-ai-image-video-audio-text/" target="_blank" rel="noopener">Read</a>
+        </div>
+        <div class="row">
+          <span class="when">Dec 2024</span>
+          <div class="what"><strong>Decoding Success: How Fola Oluwatosin Transforms Data and Careers for Aspiring Tech Professionals</strong><span>Zikoko · Profile feature</span></div>
+          <a href="https://www.zikoko.com/announcements/decoding-success-how-fola-oluwatosin-transforms-data-and-careers-for-aspiring-tech-professionals/" target="_blank" rel="noopener">Read</a>
+        </div>
+        <div class="row">
+          <span class="when">Oct 2023</span>
+          <div class="what"><strong>Beyond Accuracy: Evaluating and Mitigating Bias in AI Models for Fair, Equitable Outcomes</strong><span>Techeconomy</span></div>
+          <a href="https://techeconomy.ng/beyond-accuracy-evaluating-and-mitigating-bias-in-ai-models-for-fair-equitable-outcomes-in-real-world-apps" target="_blank" rel="noopener">Read</a>
+        </div>
+        <div class="row">
+          <span class="when">Jun 2023</span>
+          <div class="what"><strong>Harnessing the Power of Graph Neural Networks: Scalability and Complexity in Large-Scale Network Data</strong><span>RaveNews Online</span></div>
+          <a href="https://ravenewsonline.com/harnessing-the-power-of-graph-neural-networks-addressing-scalability-and-complexity-in-large-scale-network-data/" target="_blank" rel="noopener">Read</a>
+        </div>
+        <div class="row">
+          <span class="when">Dec 2022</span>
+          <div class="what"><strong>The Frontiers of Quantum Machine Learning: Bridging Quantum Computing and Data Science</strong><span>Techeconomy</span></div>
+          <a href="https://techeconomy.ng/the-frontiers-of-quantum-machine-learning-bridging-quantum-computing-and-data-science-for-next-generation-ai" target="_blank" rel="noopener">Read</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="mentoring">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <div class="eyebrow">Mentoring and community</div>
+          <h2>Drawing the map for people who are building careers without one</h2>
+        </div>
+        <p>Most of the people I mentor are changing careers from healthcare, care and support work, or survival jobs. I help them build portfolios that get interviews, position themselves properly, and get through the interview loop.</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <h3>ADPList</h3>
+          <p>Data Science Mentor. Recognised as a Top 10 Mentor in March and June 2026 and a Top 50 Mentor in September 2026, with more than 25 sessions and 1,000 mentoring minutes completed.</p>
+          <a class="more" href="https://adplist.org/mentors/fola-oluwatosin" target="_blank" rel="noopener">View profile and reviews</a>
+        </article>
+        <article class="card">
+          <h3>Utiva</h3>
+          <p>Data Science Coach at an international edtech, teaching cohorts the practical skills and project habits that employers hire for.</p>
+          <!-- TODO: replace href="#" with a link to session media or the Utiva page -->
+          <a class="more" href="#">View sessions</a>
+        </article>
+        <article class="card">
+          <h3>Black Data Professional Network</h3>
+          <p>Data Science Mentor, supporting Black professionals entering and progressing in data roles across the UK.</p>
+          <!-- TODO: replace href="#" with a link to session media or the BDPN page -->
+          <a class="more" href="#">View sessions</a>
+        </article>
+      </div>
+      <div class="badges" aria-label="ADPList recognition">
+        <span>Top 10 Mentor · Mar 2026</span>
+        <span>Top 10 Mentor · Jun 2026</span>
+        <span>Top 50 Mentor · Sep 2026</span>
+        <span>1,000+ mentoring minutes</span>
+      </div>
+      <div class="quotes">
+        <blockquote class="quote"><p>“Fola is an outstanding mentor, she can mentor you from scratch to expert.”</p><footer>Hamisu · ADPList review</footer></blockquote>
+        <blockquote class="quote"><p>“Mentor has deep understanding of data science industry and the job market status.”</p><footer>Yukun · ADPList review</footer></blockquote>
+        <blockquote class="quote"><p>“A real pleasure hearing about the role and day-to-day life of a data scientist.”</p><footer>Tom · ADPList review</footer></blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <div class="eyebrow">Selected projects</div>
+          <h2>Work you can click on</h2>
+        </div>
+        <p>Client work in fraud and insurance stays confidential, so these are public projects that show how I think: end to end, deployed, and built to be used.</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <span class="meta">Open source · Computer vision</span>
+          <h3>Hand and Pose Detection</h3>
+          <p>Real-time detection of hand gestures and body poses from a live camera feed, built with OpenCV and MediaPipe and released under an MIT licence. Starred by other developers on GitHub.</p>
+          <a class="more" href="https://github.com/SadeTosin/Hand-Pose-Detection-Computer-Vision-" target="_blank" rel="noopener">View on GitHub</a>
+        </article>
+        <article class="card">
+          <span class="meta">Data visualisation · Tableau Public</span>
+          <h3>Passport Strength and Global Mobility, 2013 vs 2023</h3>
+          <p>An interactive dashboard comparing a decade of change in visa-free access and global mobility, built to be explored rather than read.</p>
+          <a class="more" href="https://public.tableau.com/app/profile/folasade.oluwatosin/viz/PassportStrength/PassportStrengthandGlobalMobilityTrends2013vs_2023" target="_blank" rel="noopener">Open dashboard</a>
+        </article>
+        <article class="card">
+          <span class="meta">Machine learning · Deployed API</span>
+          <h3>Heart Disease Prediction API</h3>
+          <p>A trained classification model wrapped in a web API and deployed to the cloud, returning a live prediction from patient inputs.</p>
+          <a class="more" href="https://petterside-af59f717703a.herokuapp.com/" target="_blank" rel="noopener">Try the API</a>
+        </article>
+        <article class="card">
+          <span class="meta">Machine learning · AWS</span>
+          <h3>M&amp;B Insurance Prediction App</h3>
+          <p>An insurance prediction web application deployed on AWS Elastic Beanstalk, taking a model from notebook to a service that anyone can use.</p>
+          <a class="more" href="https://mandbinsurance-env.eba-qbzfhkdt.us-east-1.elasticbeanstalk.com/" target="_blank" rel="noopener">Open app</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="recognition">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <div class="eyebrow">Recognition and background</div>
+          <h2>In brief</h2>
+        </div>
+        <div class="list">
+          <!-- TODO: rows marked href="#" need the real link pasted in -->
+          <div class="row">
+            <span class="when">2026</span>
+            <div class="what"><strong>Panellist, The UK Tech Table by TechBridge</strong><span>Breaking Into UK Tech: The Honest Conversation</span></div>
+            <a href="#">Watch</a>
+          </div>
+          <div class="row">
+            <span class="when">2026</span>
+            <div class="what"><strong>Top 10 and Top 50 Mentor, ADPList</strong><span>Community recognition for mentoring impact</span></div>
+            <a href="https://adplist.org/mentors/fola-oluwatosin" target="_blank" rel="noopener">View</a>
+          </div>
+          <div class="row">
+            <span class="when">2025</span>
+            <div class="what"><strong>Speaker, Coding Black Females (UK) Lightning Talks</strong><span>Behavioural Biometrics: Fighting Fraud Without Friction</span></div>
+            <a href="https://www.linkedin.com/feed/update/urn:li:activity:7329210699493081089/" target="_blank" rel="noopener">View</a>
+          </div>
+          <div class="row">
+            <span class="when">2024</span>
+            <div class="what"><strong>Profiled by Zikoko</strong><span>Decoding Success: How Fola Oluwatosin Transforms Data and Careers</span></div>
+            <a href="https://www.zikoko.com/announcements/decoding-success-how-fola-oluwatosin-transforms-data-and-careers-for-aspiring-tech-professionals/" target="_blank" rel="noopener">Read</a>
+          </div>
+          <div class="row">
+            <span class="when">Recognition</span>
+            <div class="what"><strong>Endorsed by Tech Nation as an exceptional talent in digital technology</strong><span>UK Global Talent endorsement</span></div>
+            <a href="#">View</a>
+          </div>
+          <div class="row">
+            <span class="when">Education</span>
+            <div class="what"><strong>Higher National Diploma, Computer Science</strong><span>Federal Polytechnic, Ede</span></div>
+            <a href="#">View</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact">
+        <div>
+          <div class="eyebrow" style="color:var(--amber)">Book Fola</div>
+          <h2>Planning an event, panel or podcast?</h2>
+          <p>Send the date, audience and format and I will reply within two working days. I speak in person or online.</p>
+        </div>
+        <div class="links">
+          <a href="mailto:fola.tosin0203@gmail.com"><span>Email</span><small>fola.tosin0203@gmail.com</small></a>
+          <a href="https://www.linkedin.com/in/fola-o-05b73023a/" target="_blank" rel="noopener"><span>LinkedIn</span><small>Fola Oluwatosin</small></a>
+          <a href="https://adplist.org/mentors/fola-oluwatosin" target="_blank" rel="noopener"><span>Book a mentoring session</span><small>adplist.org</small></a>
+          <a href="https://github.com/SadeTosin" target="_blank" rel="noopener"><span>GitHub</span><small>github.com/SadeTosin</small></a>
+        </div>
+      </div>
+      <p class="fine">Client work for banks and insurers is confidential. Talk examples are anonymised or drawn from public projects and published writing.</p>
+    </div>
+  </section>
+
+  <div class="wrap foot">
+    <span>© 2026 Fola Oluwatosin</span>
+    <span>Data Scientist · Speaker · Mentor · United Kingdom</span>
+  </div>
+</main>
+
+<script>
+document.querySelectorAll('.copy').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var el = document.getElementById(btn.getAttribute('data-copy'));
+    var text = el ? el.textContent : '';
+    var done = function(ok){
+      var old = btn.textContent;
+      btn.textContent = ok ? 'Copied' : 'Select and copy the text above';
+      setTimeout(function(){ btn.textContent = old; }, 1800);
+    };
+    try{
+      navigator.clipboard.writeText(text).then(function(){done(true);}, function(){done(false);});
+    }catch(e){ done(false); }
+  });
+});
+</script>
+</body>
+</html>
